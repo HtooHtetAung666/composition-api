@@ -19,12 +19,15 @@
 
 <script>
 import { ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
+
 export default {
     setup() {
         let title=ref('');
         let body=ref('');
         let tag=ref('');
         let tags=ref([]);
+        let router=useRouter();
 
         let handleKeyDown= ()=>{
             if(!tags.value.includes(tag.value)) {
@@ -47,6 +50,7 @@ export default {
                     }
                 )
             }) 
+            router.push({name:'home'});
         }
 
         return { title, body, tag, handleKeyDown, tags, addPost};
@@ -99,6 +103,7 @@ export default {
         border: none;
         padding: 8px 16px;
         font-size: 18px;
+        cursor: pointer;
     }
     .pill {
         display: inline-block;

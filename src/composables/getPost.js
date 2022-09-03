@@ -8,9 +8,9 @@ let getPost = (id) => {
     let load = async()=>{
         try {
 
-            await new Promise((resolve,reject)=>{
-                setTimeout(resolve,2000);
-            })
+            // await new Promise((resolve,reject)=>{
+            //     setTimeout(resolve,2000);
+            // })
             let response = await fetch('http://localhost:3000/posts/'+id);
             if( response.staus === 404) {
                 throw new Error ('URL not found');
